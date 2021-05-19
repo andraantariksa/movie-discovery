@@ -134,6 +134,13 @@
                 </LinearLayout>
             </RelativeLayout>
 
+
+            <Button
+                android:id="@+id/buttonReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Review" />
+
             <LinearLayout
                 android:id="@+id/linearLayoutMovieVideos"
                 android:layout_width="match_parent"

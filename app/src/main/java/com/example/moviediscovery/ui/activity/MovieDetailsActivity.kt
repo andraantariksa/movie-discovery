@@ -1,5 +1,6 @@
 package com.example.moviediscovery.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -39,6 +40,13 @@ class MovieDetailsActivity : YouTubeBaseActivity() {
     }
 
     private fun setupView(binding: ActivityMovieDetailsBinding, movieId: Int) {
+        // TODO
+        binding.buttonReview.setOnClickListener {
+            val intent = Intent(this, MovieDetailsReviewActivity::class.java)
+            intent.putExtra("movieId", movieId)
+            startActivity(intent)
+        }
+
         viewModel.isLoadingMovie.observe(this, Observer {
             loading(it)
         })

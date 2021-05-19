@@ -5,6 +5,7 @@ import com.example.moviediscovery.data.model.genre.Genres
 import com.example.moviediscovery.data.model.movie.Movie
 import com.example.moviediscovery.data.model.movie.MovieDiscover
 import com.example.moviediscovery.data.model.movie.video.Video
+import com.example.moviediscovery.data.model.movie_review.MovieReview
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -21,6 +22,9 @@ interface TheMovieDBService {
 
     @GET("discover/movie")
     suspend fun fetchDiscoverMovie(@Query("page") page: Int): MovieDiscover
+
+    @GET("movie/{movieId}/reviews")
+    suspend fun fetchMovieReviews(@Path("movieId") movieId: Int, @Query("page") page: Int): MovieReview
 
     @GET("movie/{movieId}/videos")
     suspend fun fetchMovieVideo(@Path("movieId") movieId: Int): Video
